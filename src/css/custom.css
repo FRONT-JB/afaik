@@ -6,7 +6,7 @@
   --ifm-color-primary-lighter: #0353a4;
   --ifm-color-primary-lightest: #0466c8;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgb(72, 77, 91);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -23,4 +23,8 @@
 
 .footer__link-item:hover {
   color: #fff;
+}
+
+[data-theme="dark"] {
+  --docusaurus-highlighted-code-line-bg: rgb(100, 100, 100);
 }
