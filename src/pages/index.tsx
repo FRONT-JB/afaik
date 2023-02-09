@@ -3,6 +3,7 @@ import clsx from "clsx";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import Head from "@docusaurus/Head";
 
 import styles from "./index.module.css";
 
@@ -23,7 +24,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      description="As Far As I Know : 내가 기억하기로는"
     >
       <HomepageHeader />
       <main>
