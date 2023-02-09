@@ -3,7 +3,6 @@ import clsx from "clsx";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
-import Head from "@docusaurus/Head";
 
 import styles from "./index.module.css";
 

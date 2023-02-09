@@ -2,7 +2,7 @@
 slug: commit-lint
 title: Conventional Commits 적용하기
 authors: jb
-description: Conventional Commits 적용으로 커밋 메시지 관리하기
+description: Husky와 git hooks를 활용한 커밋 메시지 관리하기
 keywords: [husky, commit lint, conventional commits]
 tags: [husky, lint]
 ---
