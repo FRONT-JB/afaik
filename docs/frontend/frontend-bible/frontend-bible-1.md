@@ -13,7 +13,7 @@ sidebar_position: 1
 
 <br />
 
-::::note 렌더링 순서
+::::info 렌더링 순서
 
 1. **HTML**를 파싱 후, **DOM**트리를 구축합니다.
 2. **CSS**를 파싱 후, **CSSOM**트리를 구축합니다.
@@ -38,7 +38,7 @@ sidebar_position: 1
 
 > 생성된 DOM 노드의 레이아웃 수치(너비, 높이, 위치 등) 변경 시 영향 받은 모든 노드의(자신, 자식, 부모, 조상(결국 모든 노드) ) 수치를 다시 계산하여(Recalculate), 렌더 트리를 재생성하는 과정을 Reflow 라고 합니다.
 
-:::note
+:::info
 
 - **DOM 엘리먼트 추가, 제거 또는 변경**
 - **CSS 스타일 추가, 제거 또는 변경**
@@ -55,7 +55,7 @@ sidebar_position: 1
 
 > **Reflow** 과정이 끝난 후 재 생성된 렌더 트리를 다시 그리게 되는데 이 과정을 **Repaint** 라고 합니다.
 
-:::note
+:::info
 
 - 가시성이 변경되는 순간 **(opacity, background-color, visibility, outline)**
 - **Reflow** 가 실행된 순간 뒤에 실행됩니다.
@@ -66,7 +66,7 @@ sidebar_position: 1
 
 ## [ 주소창에 google.com을 입력하면 일어나는 일 ]
 
-::::note
+::::info
 
 1. 사용자가 웹 브라우저를 통해 google.com 을 입력하면 URL 주소 중 도메인 네임 부분을 DNS 서버에서 검색합니다.
 2. DNS 서버에서 해당 도메인 네임에 해당하는 IP 주소를 찾아 사용자가 입력한 URL 정보와 함께 전달합니다.
