@@ -3,7 +3,7 @@
   "name": "Afiak : As Far As I Know",
   "icons": [
     {
-      "src": "./img/logo.svg",
+      "src": "/img/logo.svg",
       "type": "image/svg+xml",
       "sizes": "512x512"
     }
