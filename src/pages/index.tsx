@@ -3,6 +3,7 @@ import clsx from "clsx";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import Head from "@docusaurus/Head";
 
 import styles from "./index.module.css";
 
@@ -25,6 +26,12 @@ export default function Home(): JSX.Element {
       title={`Hello from ${siteConfig.title}`}
       description="As Far As I Know : 내가 기억하기로는"
     >
+      <Head>
+        <meta
+          property="og:image"
+          content="https://avatars.githubusercontent.com/u/85790271?v=4"
+        />
+      </Head>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
