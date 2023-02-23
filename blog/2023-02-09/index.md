@@ -1,5 +1,5 @@
 ---
-slug: commit-lint
+slug: 커밋-린트
 title: Conventional Commits 적용하기
 authors: jb
 description: Husky와 git hooks를 활용한 커밋 메시지 관리하기
