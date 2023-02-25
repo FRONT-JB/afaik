@@ -1,5 +1,5 @@
 ---
-id: 데이터-타입의-종류
+id: chapter-1
 title: 01. 데이터 타입
 tags: ["Books", "Javascript"]
 ---
