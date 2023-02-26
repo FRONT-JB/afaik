@@ -293,6 +293,50 @@ getData()
 
 <br />
 
+### [Async/Await](https://joshua1988.github.io/web-development/javascript/js-async-await)
+
+> `async`와 `await`는 자바스크립트의 비동기 처리 패턴 중 가장 최근에 나온 문법입니다. 기존의 비동기 처리 방식인 **콜백 함수**와 **프로미스의 단점을 보완**하고 개발자가 읽기 좋은 코드를 작성할 수 있게 도와줍니다.
+
+```js title="async / await의 기본 문법"
+async function fetch() {
+  await get(...);
+}
+```
+
+- 먼저 함수의 앞에 `async` 라는 예약어를 붙입니다. 그러고 나서 함수의 내부 로직 중 HTTP 통신을 하는 비동기 처리 코드 앞에 `await`를 붙입니다. 여기서 주의하셔야 할 점은 **비동기 처리 메서드가 꼭 프로미스 객체를 반환해야 await가 의도한 대로 동작**합니다.
+
+```js title="async / await의 예제"
+function fetchItems() {
+  return new Promise(function (resolve, reject) {
+    var items = [1, 2, 3];
+    resolve(items);
+  });
+}
+
+async function logItems() {
+  var resultItems = await fetchItems();
+  console.log(resultItems); // [1,2,3]
+}
+```
+
+- 먼저 함수의 앞에 `async` 라는 예약어를 붙입니다. 그러고 나서 함수의 내부 로직 중 HTTP 통신을 하는 비동기 처리 코드 앞에 `await`를 붙입니다. 여기서 주의하셔야 할 점은 **비동기 처리 메서드가 꼭 프로미스 객체를 반환해야 await가 의도한 대로 동작**합니다.
+
+```js title="async & await 예외 처리"
+async function logTodoTitle() {
+  try {
+    var user = await fetchUser();
+    if (user.id === 1) {
+      var todo = await fetchTodo();
+      console.log(todo.title); // delectus aut autem
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+```
+
+- `async` / `await`에서 예외를 처리하는 방법은 바로 `try catch`입니다. 프로미스에서 에러 처리를 위해 `.catch()`를 사용했던 것처럼 `async`에서는 `catch {}` 를 사용하시면 됩니다.
+
 ---
 
 ## [ 호이스팅(hoisting)이란? ]
