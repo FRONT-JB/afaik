@@ -120,6 +120,179 @@ sidebar_position: 1
 
 ## [ 자바스크립트에서 비동기적으로 코딩하기 (3) ]
 
+### [Promise](https://joshua1988.github.io/web-development/javascript/promise-for-beginners)
+
+> 프로미스는 자바스크립트 비동기 처리에 사용되는 객체입니다.  
+> 자바스크립트의 비동기 처리란 **'특정 코드의 실행이 완료될 때까지 기다리지 않고 다음 코드를 먼저 수행하는 자바스크립트의 특성'**을 의미합니다.
+
+::::note [프로미스 코드 - 기초](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/#%ED%94%84%EB%A1%9C%EB%AF%B8%EC%8A%A4-%EC%BD%94%EB%93%9C---%EA%B8%B0%EC%B4%88)
+
+```js title="ajax를 이용한 자바스크립트 코드"
+function getData(callbackFunc) {
+  $.get("url 주소/products/1", function (response) {
+    callbackFunc(response); // 서버에서 받은 데이터 response를 callbackFunc() 함수에 넘겨줌
+  });
+}
+
+getData(function (tableData) {
+  console.log(tableData); // $.get()의 response 값이 tableData에 전달됨
+});
+```
+
+:::danger 콜백지옥
+콜백 함수만을 이용한 비동기 통신은 콜백지옥의 위험성이 있습니다.
+:::
+
+<br />
+
+```js title="Promise를 사용한 자바스크립트 코드"
+function getData(callback) {
+  // new Promise() 추가
+  return new Promise(function (resolve, reject) {
+    $.get("url 주소/products/1", function (response) {
+      // 데이터를 받으면 resolve() 호출
+      resolve(response);
+    });
+  });
+}
+
+// getData()의 실행이 끝나면 호출되는 then()
+getData().then(function (tableData) {
+  // resolve()의 결과 값이 여기로 전달됨
+  console.log(tableData); // $.get()의 reponse 값이 tableData에 전달됨
+});
+```
+
+::::
+
+<br />
+
+#### 프로미스의 3가지 상태
+
+> 프로미스는 `new Promise()`로 생성하고 종료될 때까지 **3가지의 상태**를 갖습니다.
+
+:::info Pending**<sup>(대기)</sup>**
+
+> 비동기 처리 로직이 아직 완료되지 않은 상태
+
+```js title="Pending"
+new Promise();
+```
+
+- `new Promise()` 메서드를 호출하면 Pending**<sup>(대기)</sup>** 상태가 됩니다.
+
+```js title="Pending"
+new Promise(function (resolve, reject) {
+  // ...
+});
+```
+
+- `new Promise()` 메서드를 호출할 때 **콜백 함수**를 선언할 수 있고, **콜백 함수의 인자는 resolve, reject**입니다.
+
+:::
+
+<br />
+
+:::info Fulfilled**<sup>(이행, 완료)</sup>**
+
+> 비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태
+
+```js title="Fulfilled"
+new Promise(function (resolve, reject) {
+  resolve();
+});
+```
+
+- 여기서 콜백 함수의 인자 resolve를 아래와 같이 실행하면 Fulfilled**<sup>(이행)</sup>** 상태가 됩니다.
+
+```js title="Fulfilled"
+function getData() {
+  return new Promise(function (resolve, reject) {
+    var data = 100;
+    resolve(data);
+  });
+}
+
+// resolve()의 결과 값 data를 resolvedData로 받음
+getData().then(function (resolvedData) {
+  console.log(resolvedData); // 100
+});
+```
+
+- 그리고 이행 상태가 되면 **`then()`을 이용하여 처리 결과 값을 받을 수 있습니다.**
+
+:::
+
+<br />
+
+:::info Rejected**<sup>(실패)</sup>**
+
+> 비동기 처리가 실패하거나 오류가 발생한 상태
+
+```js title="Rejected"
+new Promise(function (resolve, reject) {
+  reject();
+});
+```
+
+- `new Promise()`로 프로미스 객체를 생성하면 콜백 함수 인자로 `resolve`와 `reject`를 사용할 수 있다고 했습니다. 여기서 `reject`를 호출하면 Rejected**<sup>(실패)</sup>** 상태가 됩니다.
+
+```js title="Rejected"
+function getData() {
+  return new Promise(function (resolve, reject) {
+    reject(new Error("Request is failed"));
+  });
+}
+
+// reject()의 결과 값 Error를 err에 받음
+getData()
+  .then()
+  .catch(function (err) {
+    console.log(err); // Error: Request is failed
+  });
+```
+
+- 그리고, 실패 상태가 되면 실패한 이유(실패 처리의 결과 값)를 `catch()`로 받을 수 있습니다.
+
+:::
+
+#### 프로미스의 에러 처리 방법
+
+```js title="then()의 두번째 인자로 에러를 처리하는 방법"
+getData().then(handleSuccess, handleError);
+```
+
+```js title="catch()를 이용하는 방법"
+getData().then().catch();
+```
+
+```js title="에러처리의 예시"
+function getData() {
+  return new Promise(function (resolve, reject) {
+    reject("failed");
+  });
+}
+
+// 1. then()의 두 번째 인자로 에러를 처리하는 코드
+getData().then(
+  function () {
+    // ...
+  },
+  function (err) {
+    console.log(err);
+  }
+);
+
+// 2. catch()로 에러를 처리하는 코드
+getData()
+  .then()
+  .catch(function (err) {
+    console.log(err);
+  });
+```
+
+<br />
+
 ---
 
 ## [ 호이스팅(hoisting)이란? ]
