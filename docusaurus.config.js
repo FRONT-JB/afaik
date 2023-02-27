@@ -28,10 +28,7 @@ const config = {
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: {
-          readingTime: ({ content, defaultReadingTime }) =>
-            defaultReadingTime({ content, options: { wordsPerMinute: 100 } }),
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          showReadingTime: false,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
