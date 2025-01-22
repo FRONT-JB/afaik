@@ -1,1 +1,1 @@
-# [Afaik Online](https://afaik.online) With [Docusaurus](https://docusaurus.io/)
+# [Afaik](https://afaik.vercel.app) With [Docusaurus](https://docusaurus.io/)
