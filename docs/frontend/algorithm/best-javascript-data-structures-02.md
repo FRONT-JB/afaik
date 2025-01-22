@@ -10,12 +10,12 @@ tags: ["Algorithm", "Udemy"]
 - 입력, 삭제, 접근은 O(1)의 시간을 가진다.
 - 검색은 O(n)의 시간을 가진다.
 
-:::tip Object 메서드의 시간 복잡도
-
-- `Object.keys`, `Object.values`, `Object.entries`는 O(n)의 시간을 가진다.
-- `Object.hasOwnProperty`는 O(1)의 시간을 가진다.
-
-:::
+| Object 메서드         | 시간 복잡도 |
+| --------------------- | ----------- |
+| Object.keys           | O(n)        |
+| Object.values         | O(n)        |
+| Object.entries        | O(n)        |
+| Object.hasOwnProperty | O(1)        |
 
 ## 배열의 Big O
 
