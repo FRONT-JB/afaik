@@ -1,6 +1,6 @@
 ---
 id: best-javascript-data-structures-01
-title: JavaScript 알고리즘 & 자료구조 마스터클래스
+title: JavaScript 알고리즘 & 자료구조 마스터클래스 1
 tags: ["Algorithm", "Udemy"]
 # hide_table_of_contents: true
 ---
