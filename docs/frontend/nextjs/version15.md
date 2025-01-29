@@ -56,3 +56,11 @@ sidebar_position: 1
   - 민감한 정보를 다루는 경우 (API 키, 토큰 등)
   - 큰 용량의 의존성이 필요한 경우 (클라이언트로 전송되는 JavaScript 번들 크기 감소)
   - SEO가 중요한 정적 콘텐츠를 렌더링하는 경우
+
+## params
+
+- \[id] 형식으로 라우팅시 파라미터를 props로 받을 수 있다.
+  - 이 때 파라미터(params)의 타입은 `Promise<{id: string}>` 으로 지정해야 타입에러가 발생하지 않는다.
+  - 파라미터는 비동기적으로 처리되기 때문에 사용처에서는 await 처리를 해줘야 한다.
+  - [[Partial Prerendering]](https://nextjs.org/docs/app/building-your-application/rendering/partial-prerendering)을 지원하기 위해서도 사용한다.
+    - 페이지의 일부는 정적으로 미리 렌더링하고 나머지 부분은 동적으로 렌더링할 수 있게 해준다.
